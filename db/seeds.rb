@@ -8,7 +8,13 @@ end
 #Flights
 Flight.create(start_id: 			2,
 							finish_id:  		4,
-							start_datetime: DateTime.now + 1,
+							start_datetime: DateTime.now,
+							duration: 			9000
+							)
+
+Flight.create(start_id: 			2,
+							finish_id:  		4,
+							start_datetime: DateTime.now,
 							duration: 			9000
 							)
 

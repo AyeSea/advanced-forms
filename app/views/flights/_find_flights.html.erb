@@ -1,10 +1,10 @@
 <h3>Search for Flights:</h3>
 
 <%= form_tag(root_path, method: :get) do %>
-	<%= select_tag(:from, options_for_select(@airports), prompt: "From") %>
-	<%= select_tag(:to, options_for_select(@airports), prompt: "To") %>
-	<%= select_tag(:passengers, options_for_select(@num_passengers), prompt: "Passengers") %>
-	<%= select_tag(:date, options_for_select(@dates), prompt: "Dates") %>
+	<%= select_tag(:from, options_for_select(@airports, params[:from]), prompt: "From") %>
+	<%= select_tag(:to, options_for_select(@airports, params[:to]), prompt: "To") %>
+	<%= select_tag(:passengers, options_for_select(@num_passengers, params[:passengers]), prompt: "Passengers") %>
+	<%= select_tag(:date, options_for_select(@dates, params[:date]), prompt: "Dates") %>
 
 	<%= submit_tag("Find Flights") %>
 <% end %>

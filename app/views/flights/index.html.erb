@@ -1,2 +1,6 @@
 <h1>Flights</h1>
 <%= render 'find_flights' %>
+
+<% if params_present? %>
+	<%= render 'search_results' %>
+<% end %>
