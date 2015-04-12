@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_id: 1
+  finish_id: 1
+  start_datetime: 2015-04-12 12:37:04
+  duration: 
+
+two:
+  start_id: 1
+  finish_id: 1
+  start_datetime: 2015-04-12 12:37:04
+  duration: 
