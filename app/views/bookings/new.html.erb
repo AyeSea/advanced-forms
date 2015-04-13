@@ -1,1 +1,41 @@
 <h3>Booking your Flight</h3>
+<!--display currently chosen date, airports, flight id, 
+and fields to enter passenger name and email !-->
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Departing From</th>
+		<th>Arriving At</th>
+		<th>Flight ID</th>
+	</tr>
+
+	<tr>
+		<td><%= @flight.start_datetime %></td>
+		<td><%= @flight.from_airport.code %></td>
+		<td><%= @flight.to_airport.code %></td>
+		<td>Flight #<%= @flight.id %></td>
+	</tr>
+</table>
+
+<% @booking.each do |booking| %>
+	<%= form_for booking do |f| %>
+		
+		<%= f.fields_for :passengers do |passenger_form| %>
+			<ul>
+				<li>
+			  	<%= passenger_form.label :name, "Full Name" %>
+					<%= passenger_form.text_field :name %>
+				</li>
+
+				<li>
+					<%= passenger_form.label :email, "Primary Email" %>
+					<%= passenger_form.email_field :email %>
+				</li>
+			</ul>
+		<% end %>
+
+		<%= hidden_field_tag :flight_id, @flight.id %>
+
+		<%= f.submit "Book Flight!" %>
+	<% end %>
+<% end %>
