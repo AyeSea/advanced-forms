@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
 
 	def create
 		@flight = Flight.find_by(id: params[:flight_id])
-		@passenger = Passenger.new(name: params[:booking][:passengers][:name],
+		@passenger = 	Passenger.new(name: params[:booking][:passengers][:name],
 															 email: params[:booking][:passengers][:email])
 
 		if @passenger.save
@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
 
 			if @booking.save && @passenger.save
 				flash[:success] = 'Flight was successfully booked!'
-				redirect_to root_path
+				redirect_to @booking
 			else
 				flash.now[:error] = 'Something went wrong! Please try again.'
 				render 'new'
@@ -27,7 +27,11 @@ class BookingsController < ApplicationController
 		end
 	end
 
-	def index
+	def show
+		@flight = Booking.last.flight
+		@start_airport = @flight.from_airport
+		@end_airport = @flight.to_airport
+		@passenger = Booking.last.passenger
 	end
 
 =begin
