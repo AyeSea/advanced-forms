@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
 			@booking = @flight.bookings.build(passenger_id: @passenger.id)
 
 			if @booking.save && @passenger.save
+				PassengerMailer.confirmation_email(@passenger).deliver_now
 				flash[:success] = 'Flight was successfully booked!'
 				redirect_to @booking
 			else
