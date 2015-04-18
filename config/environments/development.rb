@@ -38,4 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Sets mail delivery method to use the Letter Opener gem.
+  config.action_mailer.delivery_method = :letter_opener
 end
